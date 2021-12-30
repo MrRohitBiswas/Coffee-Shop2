@@ -63,12 +63,15 @@ body{
 	padding: 1.5%;
 	float: left;
 	text-align: center;
+	word-wrap: break-word;
+	display: inline-block;
 }
 .card img{
 	width: 100%;
 }
 .order-section{
 	width: 100%;
+	display: inline-block;
 }
 #order{
 	text-align: center;
