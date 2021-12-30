@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<img src="latte-image.png" id = "imageid" onclick="update_img()">
+	<p id="op" onclick="change_text()" onmouseover="change_text()">
+		Default
+	</p>
+	<input onkeyup="change_text(this.value)">
+	<script type="text/javascript">
+		function change_text(text){
+			document.getElementById("op").innerHTML=text;
+		}
+	</script>
+	<p id="outp" >
+		Type city name
+	</p>
+	<input id="city">
+	<button onclick="show_temp()">Show Temperature</button>
+	
+	<script type="text/javascript">
+		function show_temp(){
+			document.getElementById("outp").style.color = "red";
+			document.getElementById("outp").style.fontSize = "20px";
+			city= document.getElementById("city").value;
+			httprequest=new XMLHttpRequest();
+			url="https://api.weatherbit.io/v2.0/current?city="+city+"&key=1128664301444bd185367125c6c87091"
+			httprequest.open("Get",url);
+			httprequest.send();
+			httprequest.onreadystatechange = function(){
+				if(this.readyState ==4 && this.status == 200)
+				{
+					user_data = JSON.parse(this.responseText);
+					document.getElementById("outp").innerHTML = user_data.data[0].temp;
+					
+				}
+			}
+			
+		}
+		function update_img()
+			{
+				document.getElementById("imageid").src="mocha-image.png";
+			}
+	</script>
+</body>
+</html>
