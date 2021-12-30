@@ -60,6 +60,7 @@ body{
 }
 .card{
 	width: 22%;
+	height: 100%;
 	padding: 1.5%;
 	float: left;
 	text-align: center;
